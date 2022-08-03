@@ -306,46 +306,45 @@
         </h5>
         <button
           type="button"
-          class="btn-close btn-danger"
+          class="btn-close"
           data-bs-dismiss="modal"
           aria-label="Close"
-        >
-          x
-        </button>
+        ></button>
       </div>
-      <div class="modal-body">
-        <form #updateForm="ngForm">
+      <form #updateForm="ngForm">
+        <div class="modal-body">
           <div class="form-group">
             <label for="exampleInputEmail1">Şifre</label>
             <input
               type="password"
               class="form-control"
-              ngModel
+              [(ngModel)]="newPassword"
+              [ngModelOptions]="{ standalone: true }"
               name="password"
               #password
               required
             />
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-warning"
-          [disabled]="!updateForm.valid"
-          (click)="changePassword(password)"
-        >
-          Müşteri Şifre Güncelle
-        </button>
-        <button
-          type="button"
-          class="btn btn-secondary"
-          data-bs-dismiss="modal"
-          id="updatePasswordModelCloseBtn"
-        >
-          Kapat
-        </button>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-warning"
+            [disabled]="!updateForm.valid"
+            (click)="changePassword()"
+          >
+            Müşteri Şifre Güncelle
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            id="updatePasswordModelCloseBtn"
+          >
+            Kapat
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
